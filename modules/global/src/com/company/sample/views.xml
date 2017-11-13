@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.sample.entity.FruitSet"
+          extends="_local"
+          name="fruitSet-with-fruits">
+        <property name="fruits"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.sample.entity.Fruit"
+          extends="_local"
+          name="fruit-with-set">
+        <property name="fruitSet"
+                  view="_minimal"/>
+    </view>
+</views>

@@ -1,0 +1,4 @@
+-- begin SAMPLE_FRUIT
+alter table SAMPLE_FRUIT add constraint FK_SAMPLE_FRUIT_FRUIT_SET foreign key (FRUIT_SET_ID) references SAMPLE_FRUIT_SET(ID) on delete CASCADE^
+create index IDX_SAMPLE_FRUIT_FRUIT_SET on SAMPLE_FRUIT (FRUIT_SET_ID)^
+-- end SAMPLE_FRUIT

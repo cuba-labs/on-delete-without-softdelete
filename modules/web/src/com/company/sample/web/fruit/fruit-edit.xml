@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.sample.web.fruit.FruitEdit"
+        datasource="fruitDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.sample.web.fruit">
+    <dsContext>
+        <datasource id="fruitDs"
+                    class="com.company.sample.entity.Fruit"
+                    view="fruit-with-set"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="fruitDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="fruitSet"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.sample.web.fruitset.FruitSetBrowse"
+        focusComponent="fruitSetsTable"
+        lookupComponent="fruitSetsTable"
+        messagesPack="com.company.sample.web.fruitset">
+    <dsContext>
+        <groupDatasource id="fruitSetsDs"
+                         class="com.company.sample.entity.FruitSet"
+                         view="fruitSet-with-fruits">
+            <query>
+                <![CDATA[select e from sample$FruitSet e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="fruitSetsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="fruitSetsTable"
+                datasource="fruitSetsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="fruitSetsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="fruitSetsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="fruitSetsTable.create"/>
+                <button id="editBtn"
+                        action="fruitSetsTable.edit"/>
+                <button id="removeBtn"
+                        action="fruitSetsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

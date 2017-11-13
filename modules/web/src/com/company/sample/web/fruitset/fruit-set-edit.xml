@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.sample.web.fruitset.FruitSetEdit"
+        datasource="fruitSetDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.sample.web.fruitset">
+    <dsContext>
+        <datasource id="fruitSetDs"
+                    class="com.company.sample.entity.FruitSet"
+                    view="fruitSet-with-fruits">
+            <collectionDatasource id="fruitsDs"
+                                  property="fruits"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="fruitSetDs">
+            <column width="250px">
+                <field property="name"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="fruitsBox"
+                  caption="msg://com.company.sample.entity/FruitSet.fruits">
+            <table id="fruitsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="name"/>
+                </columns>
+                <rows datasource="fruitsDs"/>
+                <buttonsPanel>
+                    <button action="fruitsTable.create"/>
+                    <button action="fruitsTable.edit"/>
+                    <button action="fruitsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
