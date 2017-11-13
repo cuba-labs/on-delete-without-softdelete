@@ -3,12 +3,10 @@ package com.company.sample.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import com.haulmont.chile.core.annotations.Composition;
-import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.OneToMany;
-import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
 import java.util.Date;
 import javax.persistence.Version;
@@ -27,7 +25,6 @@ public class FruitSet extends BaseUuidEntity implements Versioned, Updatable, Cr
     @Column(name = "NAME", nullable = false)
     protected String name;
 
-    @OnDeleteInverse(DeletePolicy.DENY)
     @Composition
     @OneToMany(mappedBy = "fruitSet")
     protected List<Fruit> fruits;
